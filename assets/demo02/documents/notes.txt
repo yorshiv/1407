@@ -1,0 +1,3 @@
+This is a sample text document for demo02.
+Generated as placeholder content for the Secure Dataset Viewer demo.
+Replace this folder's contents with real files at any time.

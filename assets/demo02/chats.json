@@ -1,0 +1,12 @@
+{
+  "contactName": "Subject B. Mercer",
+  "messages": [
+    { "id": 1, "sender": "them", "type": "text", "text": "Are we still on for the review tomorrow?", "timestamp": "2026-06-28T08:00:00Z" },
+    { "id": 2, "sender": "me", "type": "text", "text": "Yes, 10am works.", "timestamp": "2026-06-28T08:03:00Z" },
+    { "id": 3, "sender": "them", "type": "text", "text": "Sending over the updated file now.", "timestamp": "2026-06-29T11:30:00Z" },
+    { "id": 4, "sender": "them", "type": "image", "text": "Updated diagram.", "media": "photos/img_002.jpg", "timestamp": "2026-06-29T11:31:00Z" },
+    { "id": 5, "sender": "me", "type": "text", "text": "This looks good, thanks.", "timestamp": "2026-06-29T11:40:00Z" },
+    { "id": 6, "sender": "them", "type": "text", "text": "Anything else before submission?", "timestamp": "2026-07-01T09:38:00Z" },
+    { "id": 7, "sender": "me", "type": "text", "text": "No, we're clear to proceed.", "timestamp": "2026-07-01T09:40:00Z" }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "dataset": "demo01",
+  "generatedAt": "2026-07-14T05:18:03.352Z",
+  "lastUpdated": "2026-07-13T06:40:21.037Z",
+  "hasChats": true,
+  "hasProfile": true,
+  "counts": {
+    "photos": 3,
+    "videos": 0,
+    "documents": 2
+  },
+  "photos": [
+    {
+      "name": "img_001.jpg",
+      "size": 35471,
+      "modified": "2026-07-13T06:40:14.981Z"
+    },
+    {
+      "name": "img_002.jpg",
+      "size": 32544,
+      "modified": "2026-07-13T06:40:15.017Z"
+    },
+    {
+      "name": "img_003.jpg",
+      "size": 34125,
+      "modified": "2026-07-13T06:40:15.026Z"
+    }
+  ],
+  "videos": [],
+  "documents": [
+    {
+      "name": "data.csv",
+      "size": 64,
+      "modified": "2026-07-13T06:40:21.037Z"
+    },
+    {
+      "name": "notes.txt",
+      "size": 172,
+      "modified": "2026-07-13T06:40:21.037Z"
+    }
+  ]
+}

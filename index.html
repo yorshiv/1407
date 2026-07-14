@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aegis Viewer</title>
+<meta name="description" content="Secure local dataset viewer" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div id="particle-field"></div>
+<div class="grid-overlay"></div>
+
+<!-- ============================ LANDING ============================ -->
+<section id="screen-landing" class="screen landing screen--active">
+  <span class="eyebrow" data-cfg="landing.eyebrow">RESTRICTED ACCESS TERMINAL</span>
+  <div class="landing__logo">
+    <svg viewBox="0 0 100 100" fill="none">
+      <circle class="landing__ring" cx="50" cy="50" r="42" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 10" />
+      <circle cx="50" cy="50" r="30" stroke="var(--accent-2)" stroke-width="1.5" opacity="0.6" />
+      <path d="M50 24 L72 36 V60 C72 74 62 82 50 86 C38 82 28 74 28 60 V36 Z" fill="rgba(47,230,200,0.08)" stroke="var(--accent)" stroke-width="2"/>
+      <path d="M40 52 L47 59 L61 44" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+  </div>
+  <h1 class="landing__title" data-cfg="appName">AEGIS VIEWER</h1>
+  <p class="landing__subtitle" data-cfg="subtitle">Secure Analysis Console</p>
+  <button id="btn-enter" class="btn btn--primary landing__enter" data-cfg="buttons.enter">ENTER SYSTEM</button>
+  <p class="landing__footer" data-cfg="landing.footer">Authorized personnel only</p>
+</section>
+
+<!-- ============================== PIN =============================== -->
+<section id="screen-pin" class="screen">
+  <div class="pin-panel glass" id="pin-panel">
+    <h2 class="pin-panel__title" data-cfg="pinScreen.title">Enter Access Code</h2>
+    <p class="pin-panel__subtitle" data-cfg="pinScreen.subtitle">This session is encrypted and isolated per dataset.</p>
+    <div class="pin-dots" id="pin-dots"></div>
+    <p class="pin-error" id="pin-error" data-cfg="pinScreen.errorMessage">Access code incorrect. Try again.</p>
+    <div class="pin-keypad" id="pin-keypad"></div>
+  </div>
+</section>
+
+<!-- =========================== DATASETS ============================= -->
+<section id="screen-datasets" class="screen">
+  <div class="dataset-screen">
+    <h2 class="dataset-screen__title" data-cfg="datasetScreen.title">Select a Dataset</h2>
+    <p class="dataset-screen__subtitle" data-cfg="datasetScreen.subtitle">Choose a folder to load. Datasets never mix.</p>
+    <div class="dataset-grid" id="dataset-grid"></div>
+  </div>
+</section>
+
+<!-- ========================== PROCESSING ============================= -->
+<section id="screen-processing" class="screen processing">
+  <div class="processing__ring-wrap">
+    <svg viewBox="0 0 220 220">
+      <defs>
+        <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="var(--accent)" />
+          <stop offset="100%" stop-color="var(--accent-2)" />
+        </linearGradient>
+      </defs>
+      <circle class="processing__ring-bg" cx="110" cy="110" r="96"></circle>
+      <circle class="processing__ring-fg" id="ring-fg" cx="110" cy="110" r="96"></circle>
+    </svg>
+    <div class="processing__scanline"></div>
+    <div class="processing__percent" id="processing-percent">0%</div>
+  </div>
+  <div class="processing__bar-track"><div class="processing__bar-fill" id="processing-bar"></div></div>
+  <p class="processing__message" id="processing-message">Initializing...</p>
+</section>
+
+<!-- =========================== TERMINAL ============================== -->
+<section id="screen-terminal" class="screen terminal-screen">
+  <div class="terminal">
+    <div class="terminal__bar">
+      <span class="terminal__dot"></span><span class="terminal__dot"></span><span class="terminal__dot"></span>
+      <span class="terminal__title">secure-shell — dataset bootstrap</span>
+    </div>
+    <div class="terminal__body" id="terminal-body"></div>
+  </div>
+</section>
+
+<!-- =========================== DASHBOARD ============================= -->
+<section id="screen-dashboard" class="screen screen--dashboard">
+  <div class="dashboard">
+    <aside class="sidebar">
+      <div class="sidebar__brand" data-cfg="appName">AEGIS VIEWER</div>
+      <div class="sidebar__dataset" id="sidebar-dataset-name">—</div>
+      <nav class="sidebar__nav" id="sidebar-nav">
+        <button class="sidebar__link sidebar__link--active" data-view="overview">
+          <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>
+          <span data-cfg="sidebar.overview">Overview</span>
+        </button>
+        <button class="sidebar__link" data-view="chats">
+          <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span data-cfg="sidebar.chats">Chats</span>
+        </button>
+        <button class="sidebar__link" data-view="photos">
+          <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span data-cfg="sidebar.photos">Photos</span>
+        </button>
+        <button class="sidebar__link" data-view="videos">
+          <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="14" height="14" rx="2"/><path d="M22 8l-6 4 6 4z"/></svg>
+          <span data-cfg="sidebar.videos">Videos</span>
+        </button>
+        <button class="sidebar__link" data-view="documents">
+          <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+          <span data-cfg="sidebar.documents">Documents</span>
+        </button>
+        <button class="sidebar__link" data-view="search">
+          <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <span data-cfg="sidebar.search">Search</span>
+        </button>
+      </nav>
+      <div class="sidebar__spacer"></div>
+      <button class="sidebar__logout" id="btn-logout">
+        <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+        <span data-cfg="buttons.logout">Log Out</span>
+      </button>
+    </aside>
+
+    <main class="main">
+      <!-- Overview -->
+      <div class="view view--active" data-view="overview">
+        <div class="main__header">
+          <div>
+            <h1 class="main__title" data-cfg="dashboard.title">Dataset Overview</h1>
+            <p class="main__subtitle" id="overview-subtitle">—</p>
+          </div>
+          <button class="btn btn--ghost btn--sm" id="btn-change-dataset" data-cfg="buttons.backToDatasets">Change Dataset</button>
+        </div>
+        <div class="stat-grid" id="stat-grid"></div>
+        <div class="profile-panel glass" id="profile-panel"></div>
+      </div>
+
+      <!-- Chats -->
+      <div class="view" data-view="chats">
+        <div class="main__header">
+          <div><h1 class="main__title" data-cfg="sidebar.chats">Chats</h1><p class="main__subtitle">Messages loaded from the current dataset only.</p></div>
+        </div>
+        <div id="chat-container"></div>
+      </div>
+
+      <!-- Photos -->
+      <div class="view" data-view="photos">
+        <div class="main__header">
+          <div><h1 class="main__title" data-cfg="sidebar.photos">Photos</h1><p class="main__subtitle" id="photos-subtitle">—</p></div>
+        </div>
+        <div class="photo-grid" id="photo-grid"></div>
+      </div>
+
+      <!-- Videos -->
+      <div class="view" data-view="videos">
+        <div class="main__header">
+          <div><h1 class="main__title" data-cfg="sidebar.videos">Videos</h1><p class="main__subtitle" id="videos-subtitle">—</p></div>
+        </div>
+        <div class="video-grid" id="video-grid"></div>
+      </div>
+
+      <!-- Documents -->
+      <div class="view" data-view="documents">
+        <div class="main__header">
+          <div><h1 class="main__title" data-cfg="sidebar.documents">Documents</h1><p class="main__subtitle" id="documents-subtitle">—</p></div>
+        </div>
+        <div class="doc-grid" id="doc-grid"></div>
+      </div>
+
+      <!-- Search -->
+      <div class="view" data-view="search">
+        <div class="main__header">
+          <div><h1 class="main__title" data-cfg="sidebar.search">Search</h1><p class="main__subtitle">Searches only inside the current dataset.</p></div>
+        </div>
+        <div class="search-bar glass">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input type="text" id="search-input" placeholder="Search chats, photos, videos, documents..." />
+        </div>
+        <div class="search-results" id="search-results"></div>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- Overlays -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev">&#8249;</button>
+  <img id="lightbox-img" src="" alt="" />
+  <button class="lightbox__nav lightbox__nav--next" id="lightbox-next">&#8250;</button>
+  <button class="lightbox__close" id="lightbox-close">&times;</button>
+</div>
+
+<div class="video-modal" id="video-modal">
+  <video id="video-modal-player" controls playsinline></video>
+</div>
+
+<div class="doc-preview" id="doc-preview">
+  <div class="doc-preview__panel glass">
+    <div class="doc-preview__bar">
+      <span id="doc-preview-name">file.txt</span>
+      <div style="display:flex; gap:8px;">
+        <a class="btn btn--sm btn--ghost" id="doc-preview-download" href="#" download data-cfg="buttons.download">Download File</a>
+        <button class="btn btn--sm btn--ghost" id="doc-preview-close" data-cfg="buttons.closePreview">Close</button>
+      </div>
+    </div>
+    <div class="doc-preview__content" id="doc-preview-content"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/modules/theme.js"></script>
+<script src="js/modules/particles.js"></script>
+<script src="js/modules/state.js"></script>
+<script src="js/modules/config-text.js"></script>
+<script src="js/modules/pin.js"></script>
+<script src="js/modules/datasets.js"></script>
+<script src="js/modules/processing.js"></script>
+<script src="js/modules/terminal.js"></script>
+<script src="js/modules/dashboard.js"></script>
+<script src="js/modules/chats.js"></script>
+<script src="js/modules/photos.js"></script>
+<script src="js/modules/videos.js"></script>
+<script src="js/modules/documents.js"></script>
+<script src="js/modules/search.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

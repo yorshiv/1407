@@ -1,0 +1,97 @@
+{
+  "appName": "AEGIS VIEWER",
+  "subtitle": "Secure Analysis Console",
+  "pin": "2468",
+  "pinLength": 4,
+  "buttons": {
+    "enter": "ENTER SYSTEM",
+    "unlock": "UNLOCK",
+    "selectDataset": "OPEN DATASET",
+    "backToDatasets": "Change Dataset",
+    "logout": "Log Out",
+    "closePreview": "Close",
+    "download": "Download File",
+    "retry": "Try Again"
+  },
+  "landing": {
+    "eyebrow": "RESTRICTED ACCESS TERMINAL",
+    "footer": "Authorized personnel only \u00b7 All activity is logged locally"
+  },
+  "pinScreen": {
+    "title": "Enter Access Code",
+    "subtitle": "This session is encrypted and isolated per dataset.",
+    "errorMessage": "Access code incorrect. Try again."
+  },
+  "datasetScreen": {
+    "title": "Select a Dataset",
+    "subtitle": "Choose a folder to load. Datasets never mix.",
+    "emptyMessage": "No datasets found. Add an entry to config/datasets.json to get started."
+  },
+  "loadingMessages": [
+    "Initializing secure session...",
+    "Reading local dataset...",
+    "Loading chats...",
+    "Loading photos...",
+    "Loading videos...",
+    "Loading documents...",
+    "Building dashboard...",
+    "Finalizing..."
+  ],
+  "terminalLines": [
+    "$ mount --readonly /assets/{dataset}",
+    "$ verify checksum manifest.json ... OK",
+    "$ loading dataset.......... {dataset}",
+    "$ parsing chats.json ...... OK",
+    "$ indexing photos/ ......... OK",
+    "$ indexing videos/ ......... OK",
+    "$ indexing documents/ ...... OK",
+    "$ building gallery cache .... OK",
+    "$ preparing dashboard ....... OK",
+    "> analysis complete.",
+    "> launching viewer..."
+  ],
+  "dashboard": {
+    "title": "Dataset Overview",
+    "cards": {
+      "chats": "Chats",
+      "photos": "Photos",
+      "videos": "Videos",
+      "documents": "Documents",
+      "totalFiles": "Total Files",
+      "lastUpdated": "Last Updated"
+    }
+  },
+  "sidebar": {
+    "overview": "Overview",
+    "chats": "Chats",
+    "photos": "Photos",
+    "videos": "Videos",
+    "documents": "Documents",
+    "search": "Search"
+  },
+  "footer": {
+    "text": "AEGIS VIEWER \u00b7 Local Static Console \u00b7 No data leaves this device"
+  },
+  "theme": {
+    "colorBg": "#05070a",
+    "colorPanel": "#0c1118",
+    "colorPanelAlt": "#111826",
+    "colorBorder": "rgba(255,255,255,0.08)",
+    "colorText": "#e8edf4",
+    "colorTextDim": "#8592a6",
+    "colorAccent": "#2fe6c8",
+    "colorAccent2": "#7c6cff",
+    "colorDanger": "#ff4d6a",
+    "colorTerminal": "#39ff88",
+    "fontDisplay": "'Sora', 'Segoe UI', sans-serif",
+    "fontBody": "'Inter', 'Segoe UI', sans-serif",
+    "fontMono": "'JetBrains Mono', 'Consolas', monospace"
+  },
+  "animation": {
+    "speed": 1,
+    "particleCount": 46,
+    "loadingMessageIntervalMs": 650,
+    "processingDurationMs": 5200,
+    "terminalCharSpeedMs": 14
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "displayName": "Subject A. Rowan",
+  "identifier": "demo01",
+  "avatar": "photos/img_001.jpg",
+  "status": "Archived Case File",
+  "location": "Undisclosed",
+  "lastActive": "2026-06-14T21:12:00Z",
+  "fields": [
+    { "label": "Case Reference", "value": "DS-01-2026" },
+    { "label": "Source", "value": "Manual Upload" },
+    { "label": "Classification", "value": "Level 2" },
+    { "label": "Records", "value": "Chats · Photos · Documents" }
+  ]
+}

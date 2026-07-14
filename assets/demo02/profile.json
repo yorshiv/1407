@@ -1,0 +1,14 @@
+{
+  "displayName": "Subject B. Mercer",
+  "identifier": "demo02",
+  "avatar": "photos/img_001.jpg",
+  "status": "Active Review",
+  "location": "Undisclosed",
+  "lastActive": "2026-07-01T09:40:00Z",
+  "fields": [
+    { "label": "Case Reference", "value": "DS-02-2026" },
+    { "label": "Source", "value": "Manual Upload" },
+    { "label": "Classification", "value": "Level 1" },
+    { "label": "Records", "value": "Chats · Photos · Documents" }
+  ]
+}

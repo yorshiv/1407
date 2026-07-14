@@ -1,0 +1,14 @@
+{
+  "displayName": "Subject C. Ibarra",
+  "identifier": "demo03",
+  "avatar": "photos/img_001.jpg",
+  "status": "Closed Case File",
+  "location": "Undisclosed",
+  "lastActive": "2026-05-22T17:05:00Z",
+  "fields": [
+    { "label": "Case Reference", "value": "DS-03-2026" },
+    { "label": "Source", "value": "Manual Upload" },
+    { "label": "Classification", "value": "Level 3" },
+    { "label": "Records", "value": "Chats · Photos · Documents" }
+  ]
+}

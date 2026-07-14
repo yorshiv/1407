@@ -1,0 +1,9 @@
+{
+  "contactName": "Subject C. Ibarra",
+  "messages": [
+    { "id": 1, "sender": "them", "type": "text", "text": "Closing out the archive this week.", "timestamp": "2026-05-18T10:00:00Z" },
+    { "id": 2, "sender": "me", "type": "text", "text": "Understood, send the final summary.", "timestamp": "2026-05-18T10:05:00Z" },
+    { "id": 3, "sender": "them", "type": "image", "text": "Final capture.", "media": "photos/img_003.jpg", "timestamp": "2026-05-20T16:20:00Z" },
+    { "id": 4, "sender": "me", "type": "text", "text": "Filed. Marking this case closed.", "timestamp": "2026-05-22T17:05:00Z" }
+  ]
+}

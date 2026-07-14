@@ -1,0 +1,13 @@
+{
+  "contactName": "Subject A. Rowan",
+  "messages": [
+    { "id": 1, "sender": "them", "type": "text", "text": "Package arrived earlier than expected.", "timestamp": "2026-06-10T09:12:00Z" },
+    { "id": 2, "sender": "me", "type": "text", "text": "Good. Log it under the usual reference.", "timestamp": "2026-06-10T09:14:00Z" },
+    { "id": 3, "sender": "them", "type": "image", "text": "Photo of the manifest.", "media": "photos/img_001.jpg", "timestamp": "2026-06-10T09:15:00Z" },
+    { "id": 4, "sender": "me", "type": "text", "text": "Received, filing now.", "timestamp": "2026-06-10T09:20:00Z" },
+    { "id": 5, "sender": "them", "type": "text", "text": "Let me know once the report is ready.", "timestamp": "2026-06-11T14:02:00Z" },
+    { "id": 6, "sender": "me", "type": "text", "text": "Working on it — should be done by tonight.", "timestamp": "2026-06-11T14:05:00Z" },
+    { "id": 7, "sender": "them", "type": "image", "text": "Second reference image.", "media": "photos/img_002.jpg", "timestamp": "2026-06-14T21:10:00Z" },
+    { "id": 8, "sender": "me", "type": "text", "text": "Got it, thank you.", "timestamp": "2026-06-14T21:12:00Z" }
+  ]
+}

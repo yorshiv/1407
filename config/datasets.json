@@ -1,0 +1,20 @@
+[
+  {
+    "id": "demo01",
+    "title": "Demo 01",
+    "description": "Archived case file with chat and photo records.",
+    "status": "Archived"
+  },
+  {
+    "id": "demo02",
+    "title": "Demo 02",
+    "description": "Active review dataset with recent activity.",
+    "status": "Active"
+  },
+  {
+    "id": "demo03",
+    "title": "Demo 03",
+    "description": "Closed dataset retained for reference.",
+    "status": "Closed"
+  }
+]
