@@ -19,8 +19,9 @@
     App.initDocPreviewControls();
 
     document.getElementById("btn-enter").addEventListener("click", () => {
-      App.showScreen("pin");
-    });
+  alert("Button clicked");
+  App.showScreen("pin");
+});
 
     document.getElementById("btn-change-dataset").addEventListener("click", () => {
       App.goToDatasets();
