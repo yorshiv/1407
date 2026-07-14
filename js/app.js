@@ -36,14 +36,15 @@
       if (btn) App.switchView(btn.dataset.view);
     });
 
-    document.getElementById("search-input").addEventListener("input", (e) => {
+        document.getElementById("search-input").addEventListener("input", (e) => {
       App.runSearch(e.target.value);
     });
 
-} catch (err) {
-  document.body.innerHTML = `
-    <pre style="color:white;background:#111;padding:20px;white-space:pre-wrap">
+  } catch (err) {
+    document.body.innerHTML = `
+      <pre style="color:white;background:#111;padding:20px;white-space:pre-wrap">
 ${err.stack || err.message}
-    </pre>
-  `;
+      </pre>
+    `;
   }
+})();
